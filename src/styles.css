@@ -1,0 +1,221 @@
+@import "tailwindcss" source(none);
+@source "../src";
+@import "tw-animate-css";
+
+@custom-variant dark (&:is(.dark *));
+
+/*
+ * Forma Mkt — Design System
+ * Paleta: rojo #ff0000 / #c20000 / #a50000, negro #000, blanco #fff
+ * Tipografías: Space Grotesk (headings) + DM Sans (body)
+ * Filosofía: 80% blanco, 15% negro, 5% rojo. Orden, claridad, precisión.
+ */
+
+@theme inline {
+  --radius-sm: calc(var(--radius) - 4px);
+  --radius-md: calc(var(--radius) - 2px);
+  --radius-lg: var(--radius);
+  --radius-xl: calc(var(--radius) + 4px);
+  --radius-2xl: calc(var(--radius) + 8px);
+  --radius-3xl: calc(var(--radius) + 12px);
+  --radius-4xl: calc(var(--radius) + 16px);
+
+  --font-sans: "DM Sans", ui-sans-serif, system-ui, sans-serif;
+  --font-display: "Space Grotesk", ui-sans-serif, system-ui, sans-serif;
+  --font-mono: ui-monospace, SFMono-Regular, Menlo, monospace;
+
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-card: var(--card);
+  --color-card-foreground: var(--card-foreground);
+  --color-popover: var(--popover);
+  --color-popover-foreground: var(--popover-foreground);
+  --color-primary: var(--primary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-primary-hover: var(--primary-hover);
+  --color-primary-deep: var(--primary-deep);
+  --color-secondary: var(--secondary);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-muted: var(--muted);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-accent: var(--accent);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-destructive: var(--destructive);
+  --color-destructive-foreground: var(--destructive-foreground);
+  --color-border: var(--border);
+  --color-input: var(--input);
+  --color-ring: var(--ring);
+  --color-ring-offset-background: var(--background);
+  --color-ink: var(--ink);
+  --color-paper: var(--paper);
+  --color-chart-1: var(--chart-1);
+  --color-chart-2: var(--chart-2);
+  --color-chart-3: var(--chart-3);
+  --color-chart-4: var(--chart-4);
+  --color-chart-5: var(--chart-5);
+  --color-sidebar: var(--sidebar);
+  --color-sidebar-foreground: var(--sidebar-foreground);
+  --color-sidebar-primary: var(--sidebar-primary);
+  --color-sidebar-primary-foreground: var(--sidebar-primary-foreground);
+  --color-sidebar-accent: var(--sidebar-accent);
+  --color-sidebar-accent-foreground: var(--sidebar-accent-foreground);
+  --color-sidebar-border: var(--sidebar-border);
+  --color-sidebar-ring: var(--sidebar-ring);
+}
+
+:root {
+  --radius: 0.25rem;
+
+  /* Forma brand palette */
+  --paper: oklch(1 0 0);            /* #ffffff */
+  --ink: oklch(0 0 0);              /* #000000 */
+  --brand-red: oklch(0.628 0.258 29.23);    /* #ff0000 */
+  --brand-red-mid: oklch(0.503 0.213 27.5); /* #c20000 */
+  --brand-red-deep: oklch(0.434 0.181 27);  /* #a50000 */
+
+  --background: var(--paper);
+  --foreground: var(--ink);
+  --card: var(--paper);
+  --card-foreground: var(--ink);
+  --popover: var(--paper);
+  --popover-foreground: var(--ink);
+
+  --primary: var(--brand-red);
+  --primary-foreground: oklch(1 0 0);
+  --primary-hover: var(--brand-red-mid);
+  --primary-deep: var(--brand-red-deep);
+
+  --secondary: oklch(0.97 0 0);
+  --secondary-foreground: var(--ink);
+  --muted: oklch(0.965 0 0);
+  --muted-foreground: oklch(0.45 0 0);
+  --accent: oklch(0.97 0 0);
+  --accent-foreground: var(--ink);
+  --destructive: var(--brand-red);
+  --destructive-foreground: oklch(1 0 0);
+  --border: oklch(0.9 0 0);
+  --input: oklch(0.9 0 0);
+  --ring: var(--brand-red);
+
+  --chart-1: var(--brand-red);
+  --chart-2: var(--brand-red-mid);
+  --chart-3: var(--brand-red-deep);
+  --chart-4: oklch(0.3 0 0);
+  --chart-5: oklch(0.6 0 0);
+
+  --sidebar: var(--paper);
+  --sidebar-foreground: var(--ink);
+  --sidebar-primary: var(--brand-red);
+  --sidebar-primary-foreground: oklch(1 0 0);
+  --sidebar-accent: oklch(0.97 0 0);
+  --sidebar-accent-foreground: var(--ink);
+  --sidebar-border: oklch(0.9 0 0);
+  --sidebar-ring: var(--brand-red);
+}
+
+.dark {
+  --background: var(--ink);
+  --foreground: var(--paper);
+  --card: oklch(0.12 0 0);
+  --card-foreground: var(--paper);
+  --popover: oklch(0.12 0 0);
+  --popover-foreground: var(--paper);
+  --primary: var(--brand-red);
+  --primary-foreground: oklch(1 0 0);
+  --secondary: oklch(0.18 0 0);
+  --secondary-foreground: var(--paper);
+  --muted: oklch(0.18 0 0);
+  --muted-foreground: oklch(0.7 0 0);
+  --accent: oklch(0.18 0 0);
+  --accent-foreground: var(--paper);
+  --border: oklch(1 0 0 / 12%);
+  --input: oklch(1 0 0 / 15%);
+  --ring: var(--brand-red);
+}
+
+@layer base {
+  * {
+    border-color: var(--color-border);
+  }
+
+  html {
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    text-rendering: optimizeLegibility;
+  }
+
+  body {
+    background-color: var(--color-background);
+    color: var(--color-foreground);
+    font-family: var(--font-sans);
+    font-feature-settings: "ss01", "cv11";
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    font-family: var(--font-display);
+    letter-spacing: -0.02em;
+    font-weight: 600;
+  }
+
+  ::selection {
+    background-color: var(--brand-red);
+    color: oklch(1 0 0);
+  }
+}
+
+@layer components {
+  /* Forma micro-component utilities */
+  .forma-rule {
+    display: inline-block;
+    width: 2.5rem;
+    height: 2px;
+    background-color: var(--brand-red);
+  }
+
+  .forma-eyebrow {
+    font-family: var(--font-sans);
+    font-size: 0.75rem;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    font-weight: 500;
+    color: var(--brand-red);
+  }
+
+  .forma-container {
+    width: 100%;
+    margin-left: auto;
+    margin-right: auto;
+    padding-left: 1.5rem;
+    padding-right: 1.5rem;
+    max-width: 80rem;
+  }
+
+  @media (min-width: 768px) {
+    .forma-container {
+      padding-left: 2.5rem;
+      padding-right: 2.5rem;
+    }
+  }
+
+  .forma-section {
+    padding-top: 5rem;
+    padding-bottom: 5rem;
+  }
+  @media (min-width: 768px) {
+    .forma-section {
+      padding-top: 8rem;
+      padding-bottom: 8rem;
+    }
+  }
+
+  .forma-link-underline {
+    background-image: linear-gradient(var(--brand-red), var(--brand-red));
+    background-size: 0% 2px;
+    background-repeat: no-repeat;
+    background-position: 0 100%;
+    transition: background-size 0.3s ease;
+  }
+  .forma-link-underline:hover {
+    background-size: 100% 2px;
+  }
+}
