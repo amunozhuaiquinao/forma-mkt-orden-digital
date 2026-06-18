@@ -1,5 +1,5 @@
 [build]
-  command = "npm run build && cp dist/index.html dist/client/index.html"
+  command = "npm run build && node post-build.js"
   publish = "dist/client"
 
 [[redirects]]
